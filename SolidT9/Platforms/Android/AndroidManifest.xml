@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+	<!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />-->
+	<uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+
+	<application android:allowBackup="true" android:icon="@mipmap/appicon" android:roundIcon="@mipmap/appicon_round" android:supportsRtl="true">
+		<!--
+		<service android:name="SolidT9.Platforms.Android" android:permission="android.permission.BIND_INPUT_METHOD"
+			android:exported="true">
+			<intent-filter>
+				<action android:name="android.view.InputMethod"/>
+			</intent-filter>
+			<meta-data android:name="android.view.im" android:resource="@xml/method"/>
+		</service>
+		-->
+	</application>
+</manifest>
