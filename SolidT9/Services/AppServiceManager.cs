@@ -1,6 +1,6 @@
 ﻿using Android.Content;
 using Microsoft.Extensions.Logging;
-using SolidT9.Platforms.Android;
+using SolidT9.Platforms.Droid;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,18 +28,27 @@ namespace SolidT9.Services
         public void InitServices()
         {
             if (_init) return;
-            
+           
+            try
+            {
 #if ANDROID
-            var actv = Platform.CurrentActivity;
-            Intent intent;
+                var actv = Platform.CurrentActivity;
+                Intent intent;
 
-            if (actv == null)
-                return;
+                if (actv == null)
+                    return;
 
-            intent = new Intent(actv, typeof(KeypadService));
-            intent.PutExtra("inputExtra", "T9 Service");
-            actv.StartService(intent);
+                _logger.Debug("Initing Services");
+
+                intent = new Intent(actv, typeof(KeypadService));
+                intent.PutExtra("inputExtra", "T9 Keypad Service");
+                actv.StartService(intent);
 #endif
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex);
+            }
 
             _logger.Debug("All services successfully initialized");
             _init = true;

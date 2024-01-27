@@ -1,11 +1,18 @@
-﻿namespace SolidT9;
+﻿using SolidT9.Services;
+
+namespace SolidT9;
 
 public partial class App : Application
 {
-	public App()
+    private readonly AppServiceManager _svmgr;
+
+    public App()
 	{
 		InitializeComponent();
 
-		MainPage = new AppShell();
+        _svmgr = new AppServiceManager();
+        _svmgr.InitServices();
+
+        MainPage = new AppShell();
 	}
 }
